@@ -1,0 +1,27 @@
+<h1>Notes</h1>
+
+<h3>Here are your notes</h3>
+
+	{{#each notes}}
+		<div class="card">
+  			<div class="card-body">
+				<h5 class="card-title">{{this.title}}</h5>
+				<p class="card-text">{{this.body}}</p>
+				<a href="#" data-id="{{this.id}}" class="btn btn-primary delete-item">Delete</a>
+			</div>
+		</div>	
+	{{/each}}
+
+<h1 id="new-note">New Note</h1>
+
+<form>
+  <div class="form-group">
+    <label for="new-header">Title</label>
+    <input class="form-control" id="new-header" placeholder="Enter Title">
+  </div>
+  <div class="form-group">
+    <label for="new-body">Details</label>
+    <input class="form-control" id="new-body" placeholder="Details">
+  </div>
+  <button id="new-post" type="submit" class="btn btn-primary">Submit</button>
+</form>
