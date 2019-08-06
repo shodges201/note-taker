@@ -4,13 +4,15 @@ var connection;
 
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
+  console.log("jaws");
 } else {
+  console.log('non-jaws');
   connection = mysql.createConnection({
-    host: "jsk3f4rbvp8ayd7w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    host: "localhost",
     port: 3306,
-    user: "z457lkzecn130zh0",
-    password: "uhjyb4033vuf9kvp", // add your local password here.
-    database: "xfptegwfug2n50u0" // add your db name here
+    user: "root",
+    password: "", // add your local password here.
+    database: "notetaker_db" // add your db name here
   });
 }
 
