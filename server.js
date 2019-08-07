@@ -59,6 +59,23 @@ app.delete("/notes/:id", function(req, res){
     });
 });
 
+app.get("/note/:id", function(req, res){
+  connection.query(`SELECT * FROM notes WHERE id=${req.params.id}`, function(err, data) {
+    if (err) throw err;
+    console.table(data);
+    //console.log(data[0].id);
+    res.render("single-note", data[0]);
+  });
+});
+
+app.put("/note/:id", function(req, res){
+  connection.query(`UPDATE notetaker_db.notes SET title="${req.body.title}", body="${req.body.body}" WHERE id=${req.params.id}`, function(err, data) {
+    if (err) throw err;
+    console.table(data);
+    //console.log(data[0].id);
+    res.end();
+  });
+});
 
 
 // Start our server so that it can begin listening to client requests.

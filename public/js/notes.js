@@ -6,7 +6,7 @@ $(document).ready(function(){
     });
     
     $(document).on("click", ".delete-item", function(event){
-        let itemID = $(this).data("id");
+        let itemID = $(this).parent().data("id");
         $.ajax(
             {
                 url: '/notes/' + itemID,
@@ -29,6 +29,24 @@ $(document).ready(function(){
         }).then(function(){
             console.log('great');
             location.reload();
+        });
+    });
+
+    $(document).on("click", ".edit", function(event){
+        event.preventDefault();
+        let id = $(this).data('id');
+        location.href = "/note/" + id;
+    });
+
+    $(document).on("click", ".edit-item", function(event){
+        let id = location.href.split("/")[location.href.split("/").length-1];
+        $.ajax({
+            type: "PUT",
+            url: "/note/" + id,
+            data: {title: $("#new-header").val().trim(), body: $("#new-body").val().trim()}
+        }).then(function(){
+            console.log('edited');
+            location.href = "/notes";
         });
     });
 });

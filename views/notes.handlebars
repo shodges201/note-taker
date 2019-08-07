@@ -1,20 +1,20 @@
 <h1>Notes</h1>
 
-<h3>Here are your notes</h3>
+<h3>Here are your notes. Click on any of the notes to edit them.</h3>
 
 	{{#each notes}}
-		<div class="card">
+		<div class="card edit note" data-id="{{this.id}}">
   			<div class="card-body">
-				<h5 class="card-title">{{this.title}}</h5>
-				<p class="card-text">{{this.body}}</p>
-				<a href="#" data-id="{{this.id}}" class="btn btn-primary delete-item">Delete</a>
+          <h5 class="card-title">{{this.title}}</h5>
+          <p class="card-text">{{this.body}}</p>
+          <a href="#" class="btn btn-primary delete-item">Delete</a>
 			</div>
 		</div>	
 	{{/each}}
 
 <h1 id="new-note">New Note</h1>
 
-<form>
+<form class="note" id="new-note-form">
   <div class="form-group">
     <label for="new-header">Title</label>
     <input class="form-control" id="new-header" placeholder="Enter Title">
