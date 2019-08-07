@@ -19,7 +19,7 @@ $(document).ready(function(){
     });
 
     $(document).on("click", "#new-post", function(event){
-        //event.preventDefault();
+        event.preventDefault();
         console.log($("#new-header").val().trim());
         console.log($("#new-body").val().trim());
         $.ajax({
