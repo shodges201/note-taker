@@ -3,11 +3,12 @@
 <h3>Here are your notes. Click on any of the notes to edit them.</h3>
 
 	{{#each notes}}
-		<div class="card edit note" data-id="{{this.id}}">
+		<div class="card note" data-id="{{this.id}}">
   			<div class="card-body">
           <h5 class="card-title">{{this.title}}</h5>
           <p class="card-text">{{this.body}}</p>
           <a href="#" class="btn btn-primary delete-item">Delete</a>
+          <a href="/note/{{this.id}}" class="btn btn-primary edit">Edit</a>
 			</div>
 		</div>	
 	{{/each}}

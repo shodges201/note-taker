@@ -7,6 +7,7 @@ $(document).ready(function(){
     
     $(document).on("click", ".delete-item", function(event){
         let itemID = $(this).parent().data("id");
+        console.log("item id: " + itemID);
         $.ajax(
             {
                 url: '/notes/' + itemID,
@@ -32,11 +33,10 @@ $(document).ready(function(){
         });
     });
 
-    $(document).on("click", ".edit", function(event){
-        event.preventDefault();
-        let id = $(this).data('id');
-        location.href = "/note/" + id;
-    });
+    // $(document).on("click", ".edit", function(event){
+    //     event.preventDefault();
+    //     let id = $(this).parent().data('id');
+    // });
 
     $(document).on("click", ".edit-item", function(event){
         let id = location.href.split("/")[location.href.split("/").length-1];
