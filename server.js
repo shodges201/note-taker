@@ -69,7 +69,7 @@ app.get("/note/:id", function(req, res){
 });
 
 app.put("/note/:id", function(req, res){
-  connection.query(`UPDATE notetaker_db.notes SET title="${req.body.title}", body="${req.body.body}" WHERE id=${req.params.id}`, function(err, data) {
+  connection.query(`UPDATE notes SET title="${req.body.title}", body="${req.body.body}" WHERE id=${req.params.id}`, function(err, data) {
     if (err) throw err;
     console.table(data);
     //console.log(data[0].id);
